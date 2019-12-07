@@ -59,7 +59,7 @@ bool FlightTaskAutoMapper2::update()
 	// vehicle exits idle.
 
 	if (_type_previous == WaypointType::idle) {
-		_thrust_setpoint = Vector3f(NAN, NAN, NAN);
+		_thrust_setpoint.setNaN();
 	}
 
 	// during mission and reposition, raise the landing gears but only
@@ -122,8 +122,8 @@ void FlightTaskAutoMapper2::_reset()
 void FlightTaskAutoMapper2::_prepareIdleSetpoints()
 {
 	// Send zero thrust setpoint
-	_position_setpoint = Vector3f(NAN, NAN, NAN); // Don't require any position/velocity setpoints
-	_velocity_setpoint = Vector3f(NAN, NAN, NAN);
+	_position_setpoint.setNaN(); // Don't require any position/velocity setpoints
+	_velocity_setpoint.setNaN();
 	_thrust_setpoint.zero();
 }
 
